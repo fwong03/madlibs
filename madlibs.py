@@ -17,9 +17,9 @@ def start_here():
 def say_hello():
     return render_template("hello.html")
 
-@app.route('/greet')
+@app.route('/greet', methods=["POST"])
 def greet_person():
-    player = request.args.get("person")
+    player = request.form.get("person")
 
     AWESOMENESS = [
         'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
@@ -29,20 +29,20 @@ def greet_person():
 
     return render_template("compliment.html", person=player, compliment=compliment)
 
-@app.route('/game')
+@app.route('/game', methods=["POST"])
 def show_game_form():
-    wants_to_play = request.args.get("playgame")
+    wants_to_play = request.form.get("playgame")
     if wants_to_play == "no":
         return render_template("goodbye.html")
     else:
         return render_template("game.html")
 
-@app.route('/madlib')
+@app.route('/madlib', methods=["POST"])
 def show_madlib():
-    madlib_name = request.args.get("person")
-    madlib_color = request.args.get("color")
-    madlib_noun = request.args.get("noun")
-    madlib_adjective = request.args.getlist("adjective")
+    madlib_name = request.form.get("person")
+    madlib_color = request.form.get("color")
+    madlib_noun = request.form.get("noun")
+    madlib_adjective = request.form.getlist("adjective")
 
     madlib_files = ["madlib1.html", "madlib2.html"]
     chosen_file = choice(madlib_files)
