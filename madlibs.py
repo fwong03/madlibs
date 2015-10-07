@@ -42,7 +42,7 @@ def show_madlib():
     madlib_name = request.args.get("person")
     madlib_color = request.args.get("color")
     madlib_noun = request.args.get("noun")
-    madlib_adjective = request.args.get("adjective")
+    madlib_adjective = request.args.getlist("adjective")
 
     return render_template("madlib.html", person=madlib_name, 
                             color=madlib_color, noun=madlib_noun,

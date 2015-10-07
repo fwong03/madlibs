@@ -4,6 +4,6 @@
   <title>Madlib</title>
 </head>
 <body>
-    <p>There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally {{ adjective }} way.</p>
+    <p>There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally {% for word in adjective %}{{ word }} {% endfor %} way.</p>
 </body>
 </html>
