@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+
+{% block content %}
+There once was a <span class="test"> {{ color }} {{ noun }} </span> sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally {% for word in adjective %}{{ word }} {% endfor %} way.
+{% endblock %}
